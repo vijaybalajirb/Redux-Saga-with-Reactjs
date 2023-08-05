@@ -1,0 +1,24 @@
+/* Styling for the card container */
+.card-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-evenly; 
+    gap: 20px; 
+    padding: 20px;
+    margin-top: 0;
+  }
+  
+  /* Styling for child elements inside the card container */
+  .card-container > * {
+    flex: 1 1 186px;
+    width: 15%;
+    aspect-ratio: 4/3;
+  }
+  
+  /* Media query for screens with a maximum width of 768px (e.g., mobile devices) */
+  @media screen and (max-width: 768px) {
+    .card-container {
+      justify-content: center;
+    }
+  }
+  

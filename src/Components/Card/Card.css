@@ -1,0 +1,83 @@
+/* Styling for the card container */
+.card {
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+}
+
+/* Styling for the image inside the card */
+.card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Styling for the product name */
+.card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Styling for the price info section */
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 17px;
+  left: 14px;
+  width: calc(100% - 29px);
+}
+
+/* Styling for the real price display */
+.real-price {
+  font-size: 17px;
+  color: white;
+  background-color: #f50;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+}
+
+/* Styling for the discount percentage display */
+.discount-circle {
+  background-color: #f50;
+  color: #fff;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+
+.addtocartbutton {
+  background-color: #8fa2ff;
+  color: white;
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.viewproductbutton {
+  background-color: #ef71a0;
+  color: white;
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 5px;
+
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 100px; /* Set a max height for the card content */
+  overflow: hidden;
+}

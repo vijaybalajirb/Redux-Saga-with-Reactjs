@@ -1,0 +1,56 @@
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align content horizontally to the center */
+    align-items: center; /* Align content vertically to the center */
+    background-color: #0D0F0F;
+    padding: 20px; 
+}
+
+.flexbox .logo {
+    width: 100%;
+    text-align: center;
+    margin: 100px 0px -21px;
+}
+
+.mainlogo {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
+.slogan {
+    text-align: center;
+    width: 100%;
+}
+
+.slogan p {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 33px 0px 0px;
+}
+
+.slogan p span {
+    font-size: 25px;
+    color: #FC6E28;
+}
+
+.copyright {
+    width: 100%;
+    margin: 10px 0px 0px;
+}
+
+.copyright p {
+    font-size: 14px;
+    color: #9AA2AD;
+    text-align: center;
+    margin: 10px 0px 50px;
+}
+
+.link {
+    position: relative;
+    left: 25%;
+}

@@ -1,0 +1,42 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10%;
+}
+
+.catagory-heading {
+    margin-top: 8%;
+
+}
+
+.cart-link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.catagories-button {
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    height: 30px;
+    border: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .catagory-heading {
+        margin-top: 21%;
+        position: relative;
+        left: 5%;
+    }
+    .cart-link {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+    }
+  }
+
+
