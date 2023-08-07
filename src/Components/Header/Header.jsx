@@ -1,8 +1,7 @@
 
 import React, { useState } from 'react';
-// import mainlogo from '../../Asserts/mainlogo.svg'
 import './Header.css';
-
+import CartButton from '../CartButton/Cartbutton';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,7 +22,7 @@ const Header = () => {
         <a className='dropdown' href="#">Feature</a>
         <a className='dropdown' href="#">Pricing</a>
         <a className='dropdown' href="#">Login</a>
-        <button className="headerButton">Sign Up</button>
+        <CartButton/>
         
       </nav>
       <div className={`hamburger-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>

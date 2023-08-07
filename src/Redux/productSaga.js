@@ -9,25 +9,28 @@ import {
   function* getProducts() {
     let data = yield fetch("https://fakestoreapi.com/products");
     data = yield data.json();
-    console.warn(data);
+    data.map((val)=>(
+      val.item = 1
+  ))
+  console.log(data)
     yield put({ type: SET_PRODUCT_LIST, data: data });
   }
   
   function* getSearchProducts(data) {
-    console.log(data)
     let result = yield fetch(`https://fakestoreapi.com/products/category/${data.query}`);
-    console.log(data);
-    console.log(result)
     result = yield result.json();
+    result.map((val)=>(
+      val.item = 1
+  ))
     yield put({ type: SET_PRODUCT_LIST, data: result });
   }
 
   function* getProductsByID(id) {
-    console.log(data)
     let result = yield fetch(`https://fakestoreapi.com/products/${data.id}`);
-    console.log(data);
-    console.log(result)
     result = yield result.json();
+    result.map((val)=>(
+      val.item = 1
+  ))
     yield put({ type: SET_PRODUCT_LIST, data: result });
   }
   

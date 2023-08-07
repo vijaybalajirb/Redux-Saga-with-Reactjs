@@ -1,17 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { addToCart, emptyFromCart, removeFromCart } from "../../Redux/action" 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./Cart.css"; // Import the Cart styles file
+import "./Cart.css";
 
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cartData);
+  const [localCartProducts, setLocalCartProducts] = useState(cartProducts);
   const dispatch = useDispatch();
-  let amount =
-    cartProducts.length &&
-    cartProducts.map((prod) => prod.price).reduce((prev, next) => prev + next);
 
+  console.log(localCartProducts)
+
+  const handleIncrement = (id) => {
+    const updatedLocalCartProducts = localCartProducts.map((product) =>
+      product.id === id ? { ...product, item: product.item + 1 } : product
+    );
+    setLocalCartProducts(updatedLocalCartProducts);
+  };
+
+  const handleDecrement = (id) => {
+    const updatedLocalCartProducts = localCartProducts.map((product) =>
+      product.id === id && product.item > 1
+        ? { ...product, item: product.item - 1 }
+        : product
+    );
+    setLocalCartProducts(updatedLocalCartProducts);
+  };
+
+  // Calculate the amount locally
+  const amount =
+    localCartProducts.length &&
+    localCartProducts
+      .map((prod) => prod.price * prod.item)
+      .reduce((prev, next) => prev + next);
+
+  const onRemoveProudct = (id) => {
+    setLocalCartProducts(localCartProducts.filter((item) => item.id !== id))
+    dispatch(removeFromCart(product.id));
+  }
+
+  const onEmptyCart = () => {
+    setLocalCartProducts({})
+    dispatch(emptyFromCart());
+  }
 
   return (
     <div className="cart-page"> {/* Add the 'cart-page' class */}
@@ -24,12 +56,13 @@ const Cart = () => {
               <th>Name</th>
               <th>Photo</th>
               <th>Category</th>
+              <th>Add items</th>
               <th>Price</th>
               <th>Cart Action</th>
             </tr>
           </thead>
           <tbody>
-            {cartProducts.map((product) => (
+            {localCartProducts.length>0 && localCartProducts.map((product) => (
               <tr key={product.id}>
                 <td>{product.title}</td>
                 <td>
@@ -41,8 +74,9 @@ const Cart = () => {
                   />
                 </td>
                 <td>{product.category}</td>
-                <td>{product.price}</td>
-                <td><button onClick={() => dispatch(removeFromCart(product.id))}>Remove</button></td>
+                <td><button onClick={(e)=>handleDecrement(product.id)}>-</button>{product.item}<button onClick={(e)=>handleIncrement(product.id)}>+</button></td>
+                <td>{product.price*product.item}</td>
+                <td><button onClick={() => onRemoveProudct(product.id)}>Remove</button></td>
               </tr>
             ))}
           </tbody>
@@ -67,7 +101,7 @@ const Cart = () => {
             </span>
           </div>
         </div>
-        <button className="emptycartbutton" onClick={()=>dispatch(emptyFromCart())}>Remove all items from cart</button>
+        <button className="emptycartbutton" onClick={()=>onEmptyCart()}>Remove all items from cart</button>
       </div>
     </div>
   );

@@ -19,7 +19,6 @@ const Card = ({id,currencyType, name, image, price, onclick,removecart }) => {
     default:
       currencySymbol = "$";
   }
-console.log(id)
 
 function handleClick() {
   onclick();

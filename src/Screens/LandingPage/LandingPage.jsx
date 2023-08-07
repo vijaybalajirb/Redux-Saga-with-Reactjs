@@ -26,24 +26,30 @@ const LandingPage = () => {
         }
       }, []);
 
-      products.map((val)=>console.log(val.id))
 
     return(
         <React.Fragment>
          <Header/>
-         <h4 className='catagory-heading'>Catagories</h4>
-         <div className='catagories'>
-            <button className='catagories-button' onClick={()=>dispatch(ProductSearch("electronics"))}>Electronics</button>
-            <button className='catagories-button' onClick={()=>dispatch(ProductSearch("jewelery"))}>jewelery</button>
-            <button className='catagories-button' onClick={()=>dispatch(ProductSearch("men's clothing"))}>Men's clothing</button>
-            <button className='catagories-button' onClick={()=>dispatch(ProductSearch("women's clothing"))}>Women's clothing</button>
-         </div>
+         <div class="categories">
+          <h4 className="category-heading">Categories</h4>
+            <div className="dropdown">
+              <button className="dropdown-button">Select Category</button>
+          <div className="dropdown-content">
+            <button onClick={() => dispatch(ProductList())}>All</button>
+            <button onClick={() => dispatch(ProductSearch("electronics"))}>Electronics</button>
+            <button onClick={() => dispatch(ProductSearch("jewelery"))}>Jewelry</button>
+            <button onClick={() => dispatch(ProductSearch("men's clothing"))}>Men's clothing</button>
+            <button onClick={() => dispatch(ProductSearch("women's clothing"))}>Women's clothing</button>
+          </div>
+        </div>
+      </div>
          <Link className='cart-link' to={"/cart"}>Go to Cart</Link>
          
          <CardContainer>
             {
                 products.map((item)=>(
                     <Card
+                    key={item.id}
                     id = {item.id}
                     name={item.title}
                     image={item.image}
@@ -58,7 +64,6 @@ const LandingPage = () => {
            
          </CardContainer>
          <Footer/>
-        
         </React.Fragment>
        
 
@@ -67,4 +72,4 @@ const LandingPage = () => {
 }
 
 
-export default LandingPage;
+export default React.memo(LandingPage);

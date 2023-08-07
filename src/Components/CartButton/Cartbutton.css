@@ -1,0 +1,26 @@
+.cart-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 6px;
+  }
+  
+  .carticon {
+    height: 30px;
+  }
+  
+  .cart-container {
+    position: relative;
+    bottom: 15px;
+  }
