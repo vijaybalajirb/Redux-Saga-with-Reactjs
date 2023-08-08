@@ -10,8 +10,6 @@ const Cart = () => {
   const [localCartProducts, setLocalCartProducts] = useState(cartProducts);
   const dispatch = useDispatch();
 
-  console.log(localCartProducts)
-
   const handleIncrement = (id) => {
     const updatedLocalCartProducts = localCartProducts.map((product) =>
       product.id === id ? { ...product, item: product.item + 1 } : product
@@ -38,7 +36,6 @@ const Cart = () => {
   const onRemoveProudct = (id) => {
     dispatch(removeFromCart(id));
     setLocalCartProducts(localCartProducts.filter((item) => item.id !== id))
-    console.log("remove")
   }
 
   const onEmptyCart = () => {

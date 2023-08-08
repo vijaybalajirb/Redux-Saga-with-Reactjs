@@ -12,7 +12,6 @@ import {
     data.map((val)=>(
       val.item = 1
   ))
-  console.log(data)
     yield put({ type: SET_PRODUCT_LIST, data: data });
   }
   
