@@ -36,8 +36,9 @@ const Cart = () => {
       .reduce((prev, next) => prev + next);
 
   const onRemoveProudct = (id) => {
+    dispatch(removeFromCart(id));
     setLocalCartProducts(localCartProducts.filter((item) => item.id !== id))
-    dispatch(removeFromCart(product.id));
+    console.log("remove")
   }
 
   const onEmptyCart = () => {
